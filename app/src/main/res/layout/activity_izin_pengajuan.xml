@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.IzinPengajuanActivity"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textViewTitles"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Formulir Izin Cuti"
+        android:layout_marginEnd="30dp"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Spinner
+        android:id="@+id/spinnerInstruktur"
+        android:layout_width="match_parent"
+        android:minHeight="30dp"
+        android:paddingTop="40dp"
+        android:paddingVertical="30dp"
+        android:layout_height="wrap_content"
+        android:hint="Pilih Instruktur" />
+
+    <Spinner
+        android:id="@+id/spinnerHari"
+        android:minHeight="30dp"
+        android:paddingVertical="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Pilih Hari" />
+
+    <EditText
+        android:id="@+id/editTextLamaCuti"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Lama Cuti (dalam hari)"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/buttonSubmit"
+        android:layout_width="wrap_content"
+        android:width="400dp"
+        android:layout_height="wrap_content"
+        android:text="Submit" />
+
+    <Button
+        android:id="@+id/buttonBack"
+        android:layout_width="wrap_content"
+        android:width="400dp"
+        android:layout_height="wrap_content"
+        android:text="Batal" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>
