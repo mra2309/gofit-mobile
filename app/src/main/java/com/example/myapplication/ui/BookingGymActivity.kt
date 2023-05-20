@@ -6,21 +6,22 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R
 
-class BookingKelasListActivity:AppCompatActivity() {
+class BookingGymActivity:AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        this.setTitle("Booking Kelas List");
+        this.setTitle("Booking Kelas Gym");
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_booking_kelas);
+        setContentView(R.layout.activity_gym_list);
 
-        val backHome = findViewById<Button>(R.id.btnBackHomeBooking)
-        val addbooking = findViewById<Button>(R.id.buttonAddBooking)
+        val backHome = findViewById<Button>(R.id.btnBackHomeGym)
+        val addbooking = findViewById<Button>(R.id.buttonAddGym)
 
         backHome.setOnClickListener {
             moveToDashboard()
         }
 
+
         addbooking.setOnClickListener {
-            moveToFormBoking()
+            moveToFormBokingGym()
         }
     }
 
@@ -28,7 +29,7 @@ class BookingKelasListActivity:AppCompatActivity() {
         startActivity(Intent(this,DashboardActivity::class.java))
     }
 
-    private fun moveToFormBoking() {
-        startActivity(Intent(this,BookingKelasAddActivity::class.java))
+    private fun moveToFormBokingGym() {
+        startActivity(Intent(this,BookingGymAddActivity::class.java))
     }
 }

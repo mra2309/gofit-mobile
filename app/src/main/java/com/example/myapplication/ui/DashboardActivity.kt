@@ -12,10 +12,15 @@ class DashboardActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard);
 
-        val listizin = findViewById<Button>(R.id.btnListIjin)
-        val bookingkelas = findViewById<Button>(R.id.btnBookingKelas)
-        val changepassword = findViewById<Button>(R.id.btnChangePassword)
-        val logout = findViewById<Button>(R.id.buttonLogout)
+        val listizin            = findViewById<Button>(R.id.btnListIjin)
+        val bookingkelas        = findViewById<Button>(R.id.btnBookingKelas)
+        val bookingGym          = findViewById<Button>(R.id.btnBookingGym)
+
+        val presensiMember      = findViewById<Button>(R.id.btnPresentiMember)
+        val presensiInstruktur  = findViewById<Button>(R.id.btnPresensiInstruktur)
+
+        val changepassword      = findViewById<Button>(R.id.btnChangePassword)
+        val logout              = findViewById<Button>(R.id.buttonLogout)
 
 
         listizin.setOnClickListener {
@@ -34,6 +39,26 @@ class DashboardActivity: AppCompatActivity() {
             moveToLogin()
         }
 
+        bookingGym.setOnClickListener {
+            moveToGym()
+        }
+
+        presensiMember.setOnClickListener {
+            moveToPresensiMember()
+        }
+
+        presensiInstruktur.setOnClickListener {
+            moveToPresensiInstruktur()
+        }
+
+    }
+
+    private fun moveToPresensiMember(){
+        startActivity(Intent(this,PresensiMemberActivity::class.java))
+    }
+
+    private fun moveToPresensiInstruktur(){
+        startActivity(Intent(this,PresensiInstrukturActivity::class.java))
     }
 
     private fun moveToIzin(){
@@ -50,5 +75,9 @@ class DashboardActivity: AppCompatActivity() {
 
     private fun moveToLogin(){
         startActivity(Intent(this,LoginActivity::class.java))
+    }
+
+    private fun moveToGym(){
+        startActivity(Intent(this,BookingGymActivity::class.java))
     }
 }

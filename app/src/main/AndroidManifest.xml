@@ -27,6 +27,8 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+        <!-- TASK 3-->
         <activity android:name=".ui.LoginActivity"/>
         <activity android:name=".ui.DashboardActivity"/>
         <activity android:name=".ui.ChangePasswordActivity"/>
@@ -34,6 +36,14 @@
         <activity android:name=".ui.IzinListActivity"/>
         <activity android:name=".ui.IzinPengajuanActivity"/>
         <activity android:name=".ui.BookingKelasAddActivity"/>
+
+        <!-- TASK 4-->
+        <activity android:name=".ui.BookingGymActivity"/>
+        <activity android:name=".ui.BookingGymAddActivity"/>
+        <activity android:name=".ui.PresensiInstrukturActivity"/>
+        <activity android:name=".ui.PresensiMemberActivity"/>
+
+
     </application>
 
 </manifest>
