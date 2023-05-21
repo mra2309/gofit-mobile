@@ -12,6 +12,8 @@ class DashboardActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard);
 
+        val aktifitas            = findViewById<Button>(R.id.btnHistory)
+
         val listizin            = findViewById<Button>(R.id.btnListIjin)
         val bookingkelas        = findViewById<Button>(R.id.btnBookingKelas)
         val bookingGym          = findViewById<Button>(R.id.btnBookingGym)
@@ -22,6 +24,9 @@ class DashboardActivity: AppCompatActivity() {
         val changepassword      = findViewById<Button>(R.id.btnChangePassword)
         val logout              = findViewById<Button>(R.id.buttonLogout)
 
+        aktifitas.setOnClickListener {
+            moveToHistiory()
+        }
 
         listizin.setOnClickListener {
             moveToIzin()
@@ -79,5 +84,9 @@ class DashboardActivity: AppCompatActivity() {
 
     private fun moveToGym(){
         startActivity(Intent(this,BookingGymActivity::class.java))
+    }
+
+    private fun moveToHistiory(){
+        startActivity(Intent(this,HistoryActivity::class.java))
     }
 }

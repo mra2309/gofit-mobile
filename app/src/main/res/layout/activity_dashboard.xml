@@ -40,8 +40,16 @@
 
 
     <Button
-        android:id="@+id/btnListIjin"
+        android:id="@+id/btnHistory"
         android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="400dp"
+        android:text="Aktifitas Anda" />
+
+    <Button
+        android:id="@+id/btnListIjin"
+        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:width="400dp"

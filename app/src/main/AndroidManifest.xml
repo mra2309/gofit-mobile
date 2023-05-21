@@ -43,6 +43,10 @@
         <activity android:name=".ui.PresensiInstrukturActivity"/>
         <activity android:name=".ui.PresensiMemberActivity"/>
 
+        <!-- TASK 5 -->
+        <activity android:name=".ui.JadwalUmumActivity"/>
+        <activity android:name=".ui.HistoryActivity"/>
+
 
     </application>
 

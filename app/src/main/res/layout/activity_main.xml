@@ -29,8 +29,16 @@
         android:id="@+id/LoginBtn"
         android:layout_width="match_parent"
         android:text="Login"
+        android:layout_marginTop="30dp"
         android:width="400dp"
-        android:layout_margin="30dp"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnJadwalUmum"
+        android:layout_width="match_parent"
+        android:text="Jadwal Umum"
+        android:layout_marginTop="10dp"
+        android:width="400dp"
         android:layout_height="wrap_content"/>
 
 

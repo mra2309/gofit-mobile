@@ -34,8 +34,7 @@ interface ApiService {
 
     @GET("api/jadwal_harians")
     fun getJadwalHarian() :Call<JadwalHarianResponse>
-
-
+    
     @GET("api/izin_instrukturs")
     fun getListIzin() :Call<IzinListResponse>
 }
