@@ -1,8 +1,11 @@
 package com.example.myapplication.ui
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Message
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -21,6 +24,19 @@ import retrofit2.Retrofit
 class LoginActivity:AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding;
+    var PREFS_KEY = "prefs"
+    var EMAIL_KEY = "email"
+    var PWD_KEY = "pwd"
+    var USERNAMAE = "usernames"
+    var USER_ID = "user_id"
+    var ROLE = "role"
+
+    var email = ""
+    var pwd = ""
+    var usernames = ""
+    var user_id = ""
+    var role = ""
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         this.setTitle("Login");
@@ -72,15 +88,40 @@ class LoginActivity:AppCompatActivity() {
     }
 
     private fun loginUser(username:String,password:String){
+
+
+
+        lateinit var sharedPreferences: SharedPreferences
+        sharedPreferences = getSharedPreferences(PREFS_KEY, Context.MODE_PRIVATE)
+        email = sharedPreferences.getString(EMAIL_KEY, "").toString()
+        pwd = sharedPreferences.getString(PWD_KEY, "").toString()
+        usernames = sharedPreferences.getString(USERNAMAE, "").toString()
+        user_id = sharedPreferences.getString(USER_ID, "").toString()
+        role = sharedPreferences.getString(ROLE, "").toString()
+
+
+
         val loginRequest = LoginRequest(username,password);
         val call = ApiClient.getApiService().loginUser(loginRequest)
         call.enqueue(object : Callback<LoginResponse> {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+                Log.e("login response",response.toString());
+
                 if (response.isSuccessful) {
                     val loginResponse = response.body()
-                    val token = loginResponse?.token ?: ""
+                    val user = loginResponse?.user ?: ""
+                    Log.e("login response",user.toString());
                     // Token berhasil diterima, lakukan sesuatu di sini
                     showMessage("Login Berhasil !")
+
+                    val editor: SharedPreferences.Editor = sharedPreferences.edit()
+                    editor.putString(EMAIL_KEY, username.toString())
+                    editor.putString(PWD_KEY, password.toString())
+                    editor.putString(USERNAMAE, loginResponse!!.user!!.name.toString())
+                    editor.putString(USER_ID, loginResponse!!.user!!.idUser.toString())
+                    editor.putString(ROLE,loginResponse!!.user!!.role.toString())
+                    editor.apply()
+
                     moveToDashboard();
                 } else {
                     // Tangani jika respons tidak sukses

@@ -6,27 +6,23 @@
     android:padding="16dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.BookingGymActivity"
+    tools:context=".ui.BookingKelasAddActivity"
     >
 
-    <ListView
-        android:id="@+id/listViewGym"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-
-    <Spinner
-        android:id="@+id/spinnerInstruktur"
+    <EditText
+        android:id="@+id/edtWaktuBooking"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Pilih Instruktur" />
+        android:hint="Slot Waktu"
+        android:inputType="text" />
 
     <Button
-        android:id="@+id/buttonAddGym"
+        android:id="@+id/btnSaveGym"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:width="400dp"
-        android:text="Tambah Gym" />
+        android:layout_marginBottom="30dp"
+        android:text="Simpan" />
 
     <Button
         android:id="@+id/btnBackHomeGymAdd"

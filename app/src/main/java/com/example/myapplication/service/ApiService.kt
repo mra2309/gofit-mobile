@@ -34,7 +34,13 @@ interface ApiService {
 
     @GET("api/jadwal_harians")
     fun getJadwalHarian() :Call<JadwalHarianResponse>
-    
+
     @GET("api/izin_instrukturs")
     fun getListIzin() :Call<IzinListResponse>
+
+    @GET("api/booking_gyms")
+    fun getBookingGym() :Call<BookingGymResponse>
+
+    @POST("api/booking_gyms")
+    fun saveBookingGym(@Body request: BookingFormRequest):Call<BookingFormResponse>
 }

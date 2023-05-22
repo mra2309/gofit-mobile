@@ -98,6 +98,6 @@ class PresensiMemberActivity:AppCompatActivity() {
     }
 }
 
-private fun <E> List<E>.add(e: E) {
+fun <E> List<E>.add(e: E) {
 
 }

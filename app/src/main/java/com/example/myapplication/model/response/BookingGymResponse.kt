@@ -2,13 +2,14 @@ package com.example.myapplication.model.response
 
 import com.google.gson.annotations.SerializedName
 
-data class BookingFormResponse (
+data class BookingGymResponse (
     @SerializedName("success" ) var success : Boolean?        = null,
     @SerializedName("message" ) var message : String?         = null,
-    @SerializedName("data"    ) var data    : Datass?         = Datass()
+    @SerializedName("data"    ) var data    : ArrayList<Datax> = arrayListOf()
 )
 
-data class Datass (
+
+data class Datax (
     @SerializedName("id_gym"     ) var idGym     : String? = null,
     @SerializedName("bulan"      ) var bulan     : String? = null,
     @SerializedName("tanggal"    ) var tanggal   : String? = null,

@@ -66,6 +66,7 @@
         android:layout_height="wrap_content"/>
 
     <Button
+        android:visibility="gone"
         android:id="@+id/btnforceDashboard"
         android:layout_width="match_parent"
         android:text="Ke Dashboard"
