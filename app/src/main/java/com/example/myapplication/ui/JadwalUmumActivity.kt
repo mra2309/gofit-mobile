@@ -13,6 +13,7 @@ import com.example.myapplication.R
 import com.example.myapplication.client.ApiClient
 import com.example.myapplication.model.response.IzinListResponse
 import com.example.myapplication.model.response.JadwalHarianResponse
+import com.example.myapplication.model.response.JadwalUmumResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -23,8 +24,8 @@ class JadwalUmumActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_jadwal_umum);
 
-        val backHome = findViewById<Button>(R.id.btnBackLogin)
-
+        val backHome = findViewById<Button>(R.id.btnBackDashboardJadwalUmum)
+//
         backHome.setOnClickListener {
             moveToDashboard()
         }
@@ -37,11 +38,11 @@ class JadwalUmumActivity: AppCompatActivity() {
     }
 
     private fun getJadwalHariIni(){
-        val call = ApiClient.getApiService().getJadwalHarian()
-        call.enqueue(object : Callback<JadwalHarianResponse> {
+        val call = ApiClient.getApiService().getJadwalUmum()
+        call.enqueue(object : Callback<JadwalUmumResponse> {
             override fun onResponse(
-                call: Call<JadwalHarianResponse>,
-                response: Response<JadwalHarianResponse>
+                call: Call<JadwalUmumResponse>,
+                response: Response<JadwalUmumResponse>
             ) {
                 showMessage("Success Load Data")
                 val res =  response.body()
@@ -53,19 +54,19 @@ class JadwalUmumActivity: AppCompatActivity() {
                 res.data?.forEach{
                     Log.e("id",it!!.idKelas.toString())
                     jadwalData.add(it!!.idKelas.toString());
-                    listofVehicleNames.add(it!!.hariJadwalHarian.toString()+" - "+it!!.jenisKelas.toString())
+                    listofVehicleNames.add(it!!.hari.toString()+" - "+it!!.waktu.toString()+" - "+it!!.jenisKelas.toString())
                 }
 
                 Log.e("data", listofVehicleNames.toString())
 
-                val listViewApi: ListView = findViewById(R.id.listViewJadwalHarian)
+                val listViewApi: ListView = findViewById(R.id.listViewJadwalUmum)
                 listViewApi.adapter = ArrayAdapter(this@JadwalUmumActivity,
                     android.R.layout.simple_list_item_1, listofVehicleNames)
             }
 
 
 
-            override fun onFailure(call: Call<JadwalHarianResponse>, t: Throwable) {
+            override fun onFailure(call: Call<JadwalUmumResponse>, t: Throwable) {
                 showMessage("eror other!")
                 Log.e("failer", t.message!!)
             }

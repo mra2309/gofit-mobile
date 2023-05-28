@@ -23,7 +23,7 @@ class HistoryActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_jadwal_umum);
 
-        val backHome = findViewById<Button>(R.id.btnBackDashboardHistory)
+        val backHome = findViewById<Button>(R.id.btnBackDashboardJadwalUmum)
 
         backHome.setOnClickListener {
             moveToDashboard()
@@ -52,7 +52,7 @@ class HistoryActivity: AppCompatActivity() {
                 res.data?.forEach{
                     Log.e("id",it!!.idKelas.toString())
                     jadwalData.add(it!!.idKelas.toString());
-                    listofVehicleNames.add(it!!.hariJadwalHarian.toString()+" - "+it!!.jenisKelas.toString())
+                    listofVehicleNames.add(it!!.waktu.toString()+" - "+it!!.jenisKelas.toString())
                 }
 
                 Log.e("data", listofVehicleNames.toString())
